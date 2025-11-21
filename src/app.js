@@ -1,23 +1,29 @@
-// app.js
-const express = require("express");
-const cors = require("cors");
+
+const express = require('express');
+const db = require('./config/db');
 
 const app = express();
-
 app.use(express.json());
-app.use(cors({
-    origin: "http://localhost:3000",
-    credentials: true
-}));
 
-// 기본 라우트
-app.get("/", (req, res) => {
-    res.send("Hello World!");
+app.get('/', (req, res) => {
+    res.send("Server is running");
 });
 
-// ping 유지
-app.get("/ping", (req, res) => {
-    res.send("pong");
+app.get('/db-check', async (req, res) => {
+    try {
+        const result = await db.query("SELECT NOW()");
+        res.json({
+            ok: true,
+            message: "DB connection OK",
+            now: result.rows[0].now
+        });
+    } catch (err) {
+        res.status(500).json({
+            ok: false,
+            message: "DB connection failed",
+            error: err.message
+        });
+    }
 });
 
 module.exports = app;
