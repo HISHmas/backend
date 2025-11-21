@@ -1,23 +1,24 @@
-// app.js
-const express = require("express");
-const cors = require("cors");
+require('dotenv').config();
 
-const app = express();
+app.get('/db-check', async (req, res) => {
+    let client;
+    try {
+        client = await db.getConnection();   // ← 너 파일의 getConnection()
+        const result = await client.query('SELECT NOW()'); // 심플 체크
 
-app.use(express.json());
-app.use(cors({
-    origin: "http://localhost:3000",
-    credentials: true
-}));
-
-// 기본 라우트
-app.get("/", (req, res) => {
-    res.send("Hello World!");
+        return res.status(200).json({
+            ok: true,
+            message: 'DB connection OK',
+            now: result.rows[0].now,
+        });
+    } catch (err) {
+        console.error('DB Check Error:', err);
+        return res.status(500).json({
+            ok: false,
+            message: 'DB connection failed',
+            error: err.message,
+        });
+    } finally {
+        if (client) db.closeConnection(client);
+    }
 });
-
-// ping 유지
-app.get("/ping", (req, res) => {
-    res.send("pong");
-});
-
-module.exports = app;
