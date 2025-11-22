@@ -1,29 +1,25 @@
-
-const express = require('express');
-const db = require('./config/db');
-
+const express = require("express");
 const app = express();
+
+const { swaggerUi, swaggerSpec } = require("./config/swagger");
+const pool = require("./config/db");
+
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send("Server is running");
-});
+// swagger
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.get('/db-check', async (req, res) => {
-    try {
-        const result = await db.query("SELECT NOW()");
-        res.json({
-            ok: true,
-            message: "DB connection OK",
-            now: result.rows[0].now
-        });
-    } catch (err) {
-        res.status(500).json({
-            ok: false,
-            message: "DB connection failed",
-            error: err.message
-        });
-    }
+/**
+ * @swagger
+ * /:
+ *   get:
+ *     summary: 기본 라우트
+ *     responses:
+ *       200:
+ *         description: 서버 정상 동작 메시지
+ */
+app.get("/", (req, res) => {
+    res.send("Hello from Express!");
 });
 
 module.exports = app;
