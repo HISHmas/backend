@@ -2,12 +2,18 @@ const express = require("express");
 const app = express();
 
 const { swaggerUi, swaggerSpec } = require("./config/swagger");
-const pool = require("./config/db");
 
+// 미들웨어
 app.use(express.json());
 
-// swagger
+// Swagger
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// ✨ 여기 라우터 import 추가!!!
+const authRoutes = require("./routes/authRoutes");
+
+// ✨ 라우터 등록 추가!!!
+app.use("/api/auth", authRoutes);
 
 /**
  * @swagger
