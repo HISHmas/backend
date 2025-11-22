@@ -1,19 +1,22 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");   // 👈 추가!
 const app = express();
-
+const tokenRoutes = require("./routes/tokenRoutes");
 const { swaggerUi, swaggerSpec } = require("./config/swagger");
 
 // 미들웨어
 app.use(express.json());
+app.use(cookieParser());
 
 // Swagger
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// ✨ 여기 라우터 import 추가!!!
 const authRoutes = require("./routes/authRoutes");
-
-// ✨ 라우터 등록 추가!!!
 app.use("/api/auth", authRoutes);
+
+const userRoutes = require("./routes/userRoutes");  // 👈 토큰 필요 API
+app.use("/api/user", userRoutes);
+app.use("/api/token", tokenRoutes);
 
 /**
  * @swagger
