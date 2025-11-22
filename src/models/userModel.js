@@ -1,15 +1,15 @@
 const pool = require('../config/db');
 
 const UserModel = {
-    async createUser({ login_id, name, password, hashed_user_id, tree_url }) {
+    async createUser({ login_id, name, password }) {
         const query = `
-            INSERT INTO "user" 
-                (login_id, name, password, hashed_user_id, tree_url)
-            VALUES ($1, $2, $3, $4, $5)
-            RETURNING user_id, login_id, name, tree_url, created_at;
+            INSERT INTO "user"
+                (login_id, name, password)
+            VALUES ($1, $2, $3)
+                RETURNING user_id, login_id, name, created_at;
         `;
 
-        const values = [login_id, name, password, hashed_user_id, tree_url];
+        const values = [login_id, name, password];
         const result = await pool.query(query, values);
         return result.rows[0];
     },
