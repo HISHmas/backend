@@ -1,5 +1,5 @@
 const express = require("express");
-const cookieParser = require("cookie-parser");   // 👈 추가!
+const cookieParser = require("cookie-parser");
 const app = express();
 const tokenRoutes = require("./routes/tokenRoutes");
 const { swaggerUi, swaggerSpec } = require("./config/swagger");
@@ -14,9 +14,14 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth", authRoutes);
 
-const userRoutes = require("./routes/userRoutes");  // 👈 토큰 필요 API
+const userRoutes = require("./routes/userRoutes");
 app.use("/api/user", userRoutes);
+
 app.use("/api/token", tokenRoutes);
+
+// ⭐ Letter Routes 추가!
+const letterRoutes = require("./routes/letterRoutes");
+app.use("/api/letters", letterRoutes);
 
 /**
  * @swagger
