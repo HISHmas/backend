@@ -1,23 +1,21 @@
 const bcrypt = require('bcryptjs');
-const crypto = require('crypto');
 const UserModel = require('../models/userModel');
 const { generateToken } = require('../utils/jwt');
 
 const AuthService = {
     async signup({ login_id, name, password }) {
+        // 로그인 아이디 중복 확인
         const existing = await UserModel.findByLoginId(login_id);
         if (existing) throw new Error("이미 존재하는 로그인 아이디입니다.");
 
+        // 비밀번호 해싱
         const hashedPassword = await bcrypt.hash(password, 10);
-        const hashed_user_id = crypto.randomBytes(16).toString("hex");
-        const tree_url = `/tree/${hashed_user_id}`;
 
+        // hashed_user_id, tree_url 제거
         return await UserModel.createUser({
             login_id,
             name,
-            password: hashedPassword,
-            hashed_user_id,
-            tree_url,
+            password: hashedPassword
         });
     },
 
