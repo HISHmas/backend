@@ -38,6 +38,20 @@ const objectController = require('../controllers/objectController');
  *       201:
  *         description: 오브젝트 생성
  */
+
+/**
+ * @swagger
+ * /api/objects:
+ *   get:
+ *     summary: 로그인한 사용자의 오브젝트 전체 조회
+ *     tags: [Object]
+ *     security:
+ *       - BearerAuth: []
+ *     responses:
+ *       200:
+ *         description: 오브젝트 목록 반환
+ */
 router.post('/', authMiddleware, objectController.createObject);
+router.get('/', authMiddleware, objectController.getObjectsForUser);
 
 module.exports = router;

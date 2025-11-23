@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9a69e4d-944c-4afa-a247-225a5a7e3cda" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/objectController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/objectController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/objectModel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/objectRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/objectRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/objectService" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +60,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "feat/#17-object-add",
+    "git-widget-placeholder": "feat/#19-object-get",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

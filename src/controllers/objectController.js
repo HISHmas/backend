@@ -10,7 +10,6 @@ exports.createObject = async (req, res) => {
             });
         }
 
-        // JWT에서 user 정보 가져오기
         const user_id = req.user.user_id;
 
         const object = await ObjectService.create({
@@ -26,6 +25,23 @@ exports.createObject = async (req, res) => {
         });
 
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        return res.status(500).json({ message: err.message });
+    }
+};
+
+// ⭐ 로그인한 사용자의 오브젝트 목록 조회
+exports.getObjectsForUser = async (req, res) => {
+    try {
+        const user_id = req.user.user_id;
+
+        const objects = await ObjectService.findAllByUserId(user_id);
+
+        return res.status(200).json({
+            message: "objects fetched",
+            objects
+        });
+
+    } catch (err) {
+        return res.status(500).json({ message: err.message });
     }
 };
