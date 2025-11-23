@@ -8,6 +8,10 @@ const ObjectService = {
             position_x,
             position_y
         });
+    },
+
+    async findAllByUserId(user_id) {
+        return await ObjectModel.findObjectsByUserId(user_id);
     }
 };
 
