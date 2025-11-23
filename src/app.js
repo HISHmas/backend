@@ -27,11 +27,13 @@ const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const tokenRoutes = require("./routes/tokenRoutes");
 const letterRoutes = require("./routes/letterRoutes");
+const objectRoutes = require("./routes/objectRoutes");
 
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/token", tokenRoutes);
 app.use("/api/letters", letterRoutes);
+app.use("/api/objects", objectRoutes);
 
 /**
  * @swagger
