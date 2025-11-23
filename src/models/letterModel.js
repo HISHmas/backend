@@ -1,7 +1,7 @@
 const pool = require('../config/db');
 
 const LetterModel = {
-    // ✅ (기존 정답) 편지 작성 - 절대 변경 X
+
     async createLetter({ user_id, sender_name, content }) {
         const query = `
             INSERT INTO letter (user_id, sender_name, content)
@@ -14,7 +14,7 @@ const LetterModel = {
         return result.rows[0];
     },
 
-    // ✅ (추가) 편지 목록 조회
+    //  편지 목록 조회
     async findLettersByUserId(user_id) {
         const query = `
             SELECT letter_id, user_id, sender_name, content, created_at
@@ -26,7 +26,7 @@ const LetterModel = {
         return result.rows;
     },
 
-    // ✅ (추가) 편지 단건 조회 (본인 트리 편지만)
+    //  편지 단건 조회 (본인 트리 편지만)
     async findLetterById(letter_id, user_id) {
         const query = `
             SELECT letter_id, user_id, sender_name, content, created_at
