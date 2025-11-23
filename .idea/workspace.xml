@@ -58,7 +58,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "feat/#15-cors",
+    "git-widget-placeholder": "feat/#17-object-add",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -76,6 +76,16 @@
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/.github" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="api-docs" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/api-docs">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript 디버그.api-docs" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
