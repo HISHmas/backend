@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a69e4d-944c-4afa-a247-225a5a7e3cda" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/letterController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/letterController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/letterModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/letterModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/letterRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/letterRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/letterService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/letterService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +61,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "feat/#11-letter-api",
+    "git-widget-placeholder": "feat/#13-letter-get",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

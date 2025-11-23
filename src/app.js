@@ -19,7 +19,7 @@ app.use("/api/user", userRoutes);
 
 app.use("/api/token", tokenRoutes);
 
-// ⭐ Letter Routes 추가!
+
 const letterRoutes = require("./routes/letterRoutes");
 app.use("/api/letters", letterRoutes);
 
