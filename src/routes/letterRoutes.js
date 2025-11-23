@@ -15,7 +15,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
  * /api/letters:
  *   post:
  *     summary: 편지 작성 (비회원 기능)
- *     description: 비회원이 user_id, sender_name, content를 전달해 편지를 저장합니다.
+ *     description: 비회원이 login_id, sender_name, content를 전달해 편지를 저장합니다.
  *     tags: [Letter]
  *     requestBody:
  *       required: true
@@ -24,14 +24,14 @@ const authMiddleware = require('../middlewares/authMiddleware');
  *           schema:
  *             type: object
  *             required:
- *               - user_id
+ *               - login_id
  *               - sender_name
  *               - content
  *             properties:
- *               user_id:
- *                 type: integer
- *                 description: 편지를 받는 유저의 ID
- *                 example: 2
+ *               login_id:
+ *                 type: string
+ *                 description: 편지를 받는 유저의 login_id
+ *                 example: "wonbin123"
  *               sender_name:
  *                 type: string
  *                 description: 편지를 보낸 사람 이름
@@ -40,6 +40,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
  *                 type: string
  *                 description: 편지 내용
  *                 example: "행복한 연말 보내!"
+ *
  *     responses:
  *       201:
  *         description: 편지가 성공적으로 저장됨
